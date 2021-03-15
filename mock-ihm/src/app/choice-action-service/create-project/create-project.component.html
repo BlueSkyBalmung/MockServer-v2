@@ -1,0 +1,47 @@
+<mat-card >
+<mat-card-title></mat-card-title>
+<form [formGroup]="formGroup">
+
+  <mat-form-field appearance="outline">
+    <mat-label>Nom du service à créer</mat-label>
+    <mat-error><p>Vous devez saisir une valeur</p></mat-error>
+    <mat-icon matSuffix>person_outline</mat-icon>
+    <input matInput placeholder="Ex : grrrecex"
+           [formControl]="serviceControl">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Entrer le mot de passe</mat-label>
+    <mat-error><p>Vous devez saisir une valeur</p></mat-error>
+    <mat-icon matSuffix>lock</mat-icon>
+    <input type="password" matInput placeholder=""
+           [formControl]="passwordControl">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Entrer de nouveau le mot de passe</mat-label>
+    <mat-error *ngIf="samePasswordControl.errors
+    && samePasswordControl.errors.compare"><p>Le mot de passe saisi n'est pas le même</p></mat-error>
+    <mat-error *ngIf="samePasswordControl.errors
+    && samePasswordControl.errors?.required"><p>Vous devez saisir une valeur</p></mat-error>
+    <mat-icon matSuffix>lock</mat-icon>
+    <input type="password"
+          appCompare [compare]="passwordControl"
+           matInput placeholder=""
+           [formControl]="samePasswordControl">
+  </mat-form-field>
+  <span class="server-error" *ngIf="creationFailed">{{errorServer}}</span>
+  <button mat-raised-button
+          color="primary"
+          type="submit"
+          (click)="createService()">
+    <span class="" aria-hidden></span> Créer le service
+  </button>
+  <button mat-button color="primary"
+          type="button"
+          class="create-button"
+          (click)="flipToAuthentication()">
+    <mat-icon matPrefix>create</mat-icon>
+      Modifier un service
+
+  </button>
+</form>
+</mat-card>

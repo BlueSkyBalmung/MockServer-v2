@@ -1,0 +1,38 @@
+.accept-button:hover {
+  text-decoration: underline;
+}
+
+.refuse-button:hover {
+  text-decoration: underline;
+}
+
+.accept-button {
+  color: green;
+  border: 1px solid;
+  margin-right: 1rem;
+}
+
+.refuse-button {
+  color: red;
+  border: 1px solid;
+}
+
+.container-bouton-choice {
+  display: flex;
+  align-items: center;
+}
+
+.already-connected {
+
+
+  border: 1px solid green;
+  float: left;
+  padding: 1rem 2rem;
+}
+
+.already-container {
+  color: green;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

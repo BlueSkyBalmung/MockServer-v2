@@ -1,0 +1,21 @@
+<div class="already-container">
+  <mat-dialog-content>Vous êtes déjà connecté avec le projet <strong>{{ projectName()}}</strong>,
+    voulez-vous resté connecté sur ce projet ?</mat-dialog-content>
+  <mat-dialog-actions class="container-bouton-choice">
+    <button mat-button
+            color="primary"
+            type="button"
+            class="accept-button"
+            (click)="acceptLogin()">
+      <mat-icon matSuffix>check</mat-icon>
+      Oui
+    </button>
+    <button mat-button color="primary"
+            type="button"
+            class="refuse-button"
+            (click)="refuseLogin()">
+      <mat-icon matSuffix>close</mat-icon>
+      Non
+    </button>
+  </mat-dialog-actions>
+</div>

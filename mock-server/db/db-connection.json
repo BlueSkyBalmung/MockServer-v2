@@ -1,0 +1,18 @@
+{
+  "connectionSuccess" : {
+    "isSuccess" : true,
+    "message": "done"
+  },
+  "connectionRefused" : {
+    "isSuccess" : false ,
+    "message": "Le mot de passe saisi est erroné ou le projet n'existe pas"
+  },
+  "inscriptionOk": {
+    "isSuccess" : true,
+    "message": "done"
+  },
+  "inscriptionRefused" : {
+    "isSuccess" : false ,
+    "message": "Le service existe déjà"
+  }
+}

@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'custom-mat.scss';
+html, body { height: 100%; background-color: rgba(0,0,0,0.02);}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root {
+  --color-fur: #e96afc;
+  --color-fur-dark: #a34cf9;
+  --color-spot: #5c3ba3;
+  --color-snout: #544258;
+  --color-collar: #3eab6c;
+  --duration: 0.7s;
+  --semi-duration: calc(var(--duration) / 2);
+  --easing: cubic-bezier(0.5, 0, 0.5, 1);
+  --stagger: calc(-1 * var(--semi-duration) / 2);
+}
+
+
+.section-container {
+  min-height: 100vh;
+}

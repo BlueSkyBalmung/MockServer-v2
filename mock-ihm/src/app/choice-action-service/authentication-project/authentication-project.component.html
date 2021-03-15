@@ -1,0 +1,35 @@
+<mat-card >
+  <mat-card-title>Authentification</mat-card-title>
+  <form [formGroup]="formGroup">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nom du service</mat-label>
+      <mat-error *ngIf="serviceValidator.invalid"><p>Vous devez saisir une valeur</p></mat-error>
+      <mat-icon matSuffix>person_outline</mat-icon>
+      <input id="service" matInput required placeholder="Ex : grrrecex" [formControl]="serviceValidator">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Mot de passe</mat-label>
+      <mat-error *ngIf="passwordValidator.invalid"><p>Vous devez saisir une valeur</p></mat-error>
+      <mat-error *ngIf="authentFailed"><p>Le mot de passe n'est pas reconnu</p></mat-error>
+      <mat-icon matSuffix>lock</mat-icon>
+      <input id="mdp" type="password" matInput required placeholder="" [formControl]="passwordValidator">
+    </mat-form-field>
+    <span class="server-error" *ngIf="authentFailed">{{errorServer}}</span>
+    <button mat-raised-button
+            color="primary"
+      type="submit"
+      (click)="connectToService()"
+      class="connect-button">
+      <span class="" aria-hidden></span> Connexion
+    </button>
+    <button mat-button color="primary"
+            type="button"
+      class="create-button"
+      (click)="flipToCreate()">
+      <mat-icon matPrefix>add_circle_outline</mat-icon>
+      Créer un nouveau service
+
+    </button>
+  </form>
+</mat-card>

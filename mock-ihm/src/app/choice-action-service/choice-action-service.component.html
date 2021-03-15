@@ -1,0 +1,13 @@
+<section class="section-container">
+  <div [@flip]="flip" [ngClass]="{'flip-card-inner': true, 'blur-background': isAuthenticated()}">
+    <ng-container *ngIf="isAuthenticated()">
+      <div class="disable-panel"></div>
+    </ng-container>
+    <div class="flip-card-front">
+      <app-authentication-project (valueEmitter)="flipCard($event)" ></app-authentication-project>
+    </div>
+    <div class="flip-card-back">
+      <app-create-projet (valueEmitter)="flipCard($event)" ></app-create-projet>
+    </div>
+  </div>
+</section>

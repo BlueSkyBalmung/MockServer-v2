@@ -1,0 +1,13 @@
+<section class="section-container">
+  <div class="div-container">
+    <div class="div-content">
+      <p>Les 3 fichiers ont bien été uploadés et le projet {{projet | uppercase}} a bien été mis à jour</p>
+      <div class="div-button">
+        <button class="reupload-button" type="button" mat-button (click)="goToUploadPage()">
+            <mat-icon matPrefix>keyboard_backspace</mat-icon>uploader un autre .zip
+        </button>
+        <a href="{{urlAccueil}}" class="accueil-button" mat-raised-button color="primary">accueil</a>
+      </div>
+    </div>
+  </div>
+</section>

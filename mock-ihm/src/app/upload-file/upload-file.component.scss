@@ -1,0 +1,189 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-card.mat-card.mat-focus-indicator {
+  box-shadow: 0 0 0;
+  background-color: #FAFAFA;
+}
+
+.section-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+.flip-card-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+  min-width: 20rem;
+  max-width: 50vw;
+  min-height: 20rem;
+  max-height: 50vh;
+  margin: 5rem;
+  padding: 0 0 40px 0;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.2s;
+  margin-top: 5px;
+  margin-bottom: 0;
+  background-repeat: no-repeat;
+  background-size: auto 80%;
+  margin-bottom: calc(1vw - 3px);
+  margin-top: calc(1vw + 3px);
+}
+
+.uploadfilecontainer {
+  background-image: url("../../assets/upload.svg");
+  background-repeat: no-repeat;
+  background-size: 69%;
+  background-position: 110% 70%;
+  height: 200px;
+  width: 80%;
+  margin: 20px auto;
+  border: 0.2rem dashed #D10F90;
+  background-color: #FEDBFF;
+  padding: 10% 5%;
+  border-radius: 10px;
+}
+
+.uploadfilecontainer:hover {
+  cursor: pointer;
+  background-color: rgb(230, 177, 231);
+  transition: all 0.2s;
+  //opacity: 0.9;
+}
+
+.files-list {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  width: 30%;
+  height: auto;
+  background: #FEDBFF;
+  padding: 1rem;
+  color: #6363C9;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  opacity: 1;
+  transition: all ease-out 0.4s;
+  text-align: right;
+}
+
+.files-list .delete-file {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+mat-card-title {
+  font-size: 1rem;
+  text-align: center;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.files-list p {
+  margin: 0;
+}
+
+p {
+  font-size: 16px;
+}
+
+.trash {
+  width: 1rem;
+  height: auto;
+}
+
+.trashhaut {
+  width: 1.2rem;
+  margin-left: -0.1rem;
+  transition: all 0.3s;
+  transform: rotate(0deg);
+  margin-top: 0;
+  position: absolute;
+}
+
+.trashbas {
+  width: 1rem;
+  margin-top: 0.2rem;
+}
+
+.files-list button:hover .trashhaut {
+  transform: rotate(27deg);
+  transition: all 0.3s;
+  margin-top: -0.4rem;
+  margin-bottom: 0.3rem;
+  margin-left: 0.1rem;
+}
+
+.mat-card-actions button:hover {
+  box-shadow: 0 0 0;
+  margin-top: 10px;
+  margin-bottom: 9px;
+  transition: margin 0.1s;
+}
+
+.mat-card-actions button {
+  margin-top: 9px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  padding: 0.4rem 2rem;
+  transition: margin 0.1s;
+}
+
+
+.transition-disappear, .disappear {
+  opacity: 0;
+  height: 0;
+  width: 0;
+  position: absolute;
+}
+
+.transition-appear{
+  opacity: 1;
+  height: auto;
+  width: auto;
+  position: relative;
+  transition: all ease-out 0.4s;
+}
+
+.error-upload-file-incorrect {
+  color: #FF0000;
+  text-align: center;
+  font-weight: bold;
+}
+
+.column {
+  float: left;
+  width: 70px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.success-message{
+  text-align: center;
+  font-weight: bold;
+}
+
+.blurred {
+  backdrop-filter: blur(5px);
+}
