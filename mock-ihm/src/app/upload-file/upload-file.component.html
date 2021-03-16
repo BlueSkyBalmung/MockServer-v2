@@ -4,7 +4,10 @@
       <mat-card>
         <mat-card-title>{{login | uppercase}}</mat-card-title>
         <form [formGroup]="formGroup" (submit)="uploadFiles()">
-          <div class="uploadfilecontainer" appDragDrop (fileDropped)="uploadFile($event)" (click)="fileInput.click()"
+          <div class="uploadfilecontainer" tabindex="0" role="button"
+               title="Déposer ici vos 3 fichiers: server.js, dist.zip et mock.zip (les .json)"
+               appDragDrop (fileDropped)="uploadFile($event)" (click)="fileInput.click()"
+               (keydown.enter)="fileInput.click()" (keydown.space)="fileInput.click()"
                [ngClass]="{'blurred': getSpinnerInfos().isSpinnerVisible()}">
 
             <p>Déposer ici vos 3 fichiers: <br>server.js, dist.zip et mock.zip (les .json)</p>
@@ -13,7 +16,7 @@
             <div class="files-list" [ngClass]="{'transition-disappear' : getSpinnerInfos().isSpinnerVisible()}"
                  *ngFor="let file of files;let i= index">
               <p> {{ file.name }} </p>
-              <button class="delete-file" (click)="deleteFile(i)">
+              <button class="delete-file" title="supprimer {{file.name}}" (click)="deleteFile(i)">
                                 <span class="trash">
                                     <img class="trashhaut" src="../../assets/trashhaut.svg">
                                     <img class="trashbas" src="../../assets/trashbas.svg">

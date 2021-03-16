@@ -67,15 +67,18 @@ export class UserService {
     const user = new User();
     user.login = login;
     user.password = password;
-    this.http.post<RequestReturn>(environment.api + INIT_API, user).subscribe(req => {
+    const reqReturn = new RequestReturn();
+    this.http.post<string>(environment.api + INIT_API, user).subscribe(req => {
       this.login = login;
       this.password = password;
       this.authenticate = true;
-      reqResponse.next(req);
+      reqReturn.message = req;
+      reqReturn.isSuccess = true;
+      reqResponse.next(reqReturn);
     }, error => {
       const requestError = new RequestReturn();
       requestError.isSuccess = false;
-      requestError.message = error.error.message;
+      requestError.message = error;
       reqResponse.next(requestError);
     });
     return reqResponse;
