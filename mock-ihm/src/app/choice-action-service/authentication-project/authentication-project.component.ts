@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../shared/services/user.service';
 import {Router} from '@angular/router';
@@ -12,6 +12,8 @@ import {SessionStorageService} from 'ngx-webstorage';
   styleUrls: ['./authentication-project.component.scss']
 })
 export class AuthenticationProjectComponent implements OnInit {
+
+  @Input() focusable: boolean;
 
   serviceValidator: FormControl =  new FormControl('', [Validators.required]);
 

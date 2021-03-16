@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {UserService} from '../shared/services/user.service';
-import {RoutingConstantesPath} from '../shared/constantes/routing-path';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {AlreadyConnectedDialogComponent} from './already-connected-dialog/already-connected-dialog.component';
 
@@ -20,6 +19,9 @@ import {AlreadyConnectedDialogComponent} from './already-connected-dialog/alread
   ]
 })
 export class ChoiceActionServiceComponent implements OnInit {
+
+  flippedAuthent = true;
+  flippedCreate = false;
   /**
    * état de la carte
    */
@@ -43,6 +45,13 @@ export class ChoiceActionServiceComponent implements OnInit {
    */
   flipCard($event: string): void {
     this.flip = (this.flip === 'unflipped') ? 'flipped' : 'unflipped';
+    if (this.flip === 'flipped'){
+      this.flippedCreate = true;
+      setTimeout(() => { this.flippedAuthent = false; }, 500);
+    } else {
+      this.flippedAuthent = true;
+      setTimeout(() => { this.flippedCreate = false; }, 500);
+    }
   }
 
   /**

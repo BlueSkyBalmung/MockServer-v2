@@ -4,10 +4,11 @@
       <div class="disable-panel"></div>
     </ng-container>
     <div class="flip-card-front">
-      <app-authentication-project (valueEmitter)="flipCard($event)" ></app-authentication-project>
+      <app-authentication-project (valueEmitter)="flipCard($event)" [focusable]="flippedAuthent"
+      ></app-authentication-project>
     </div>
     <div class="flip-card-back">
-      <app-create-projet (valueEmitter)="flipCard($event)" ></app-create-projet>
+      <app-create-projet (valueEmitter)="flipCard($event)" [focusable]="flippedCreate"></app-create-projet>
     </div>
   </div>
 </section>

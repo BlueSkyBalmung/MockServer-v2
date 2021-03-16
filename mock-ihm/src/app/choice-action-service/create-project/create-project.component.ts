@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../shared/services/user.service';
 import {RoutingConstantesPath} from '../../shared/constantes/routing-path';
@@ -11,6 +11,8 @@ import {AuthorizedPathsService} from '../../shared/services/authorized-paths.ser
   styleUrls: ['./create-project.component.scss']
 })
 export class CreateProjectComponent implements OnInit {
+
+  @ViewChild('focusElementCreate') focusElement;
 
   createProjectStorage = 'createProjectStorage';
 
@@ -64,6 +66,7 @@ export class CreateProjectComponent implements OnInit {
    */
   errorServer: string;
   serverOk: string;
+  @Input() focusable: boolean;
 
   constructor(private userService: UserService,
               private router: Router,
