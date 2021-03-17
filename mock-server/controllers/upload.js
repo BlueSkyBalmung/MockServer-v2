@@ -60,6 +60,7 @@ exports.upload = (req, res) => {
     tools.extractFolderMock(path + '/mock.zip', path + '/mock')
         .then(() => {
             tools.moveDistToServerHttp(path + '/dist.zip', req.body.login);
+            tools.manageInfosFile(req.body.login, path);
             startApi(req.body.login, res);
             res.status(200).jsonp('Api restarted');
         }).catch((err) => {

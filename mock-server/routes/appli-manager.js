@@ -8,4 +8,6 @@ const appliManagCtrl = require('../controllers/appli-manager');
  */
 router.get('/initCards', appliManagCtrl.getApplis);
 
+router.post('/updateInfos', appliManagCtrl.updateInfos);
+
 module.exports = router;

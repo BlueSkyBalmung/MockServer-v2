@@ -7,6 +7,7 @@ const glob = require("glob");
 const fs = require('fs');
 const fse = require('fs-extra');
 const unzipper = require('unzipper');
+const dayjs = require('dayjs');
 
 /**
  * Permet de supprimer les routes pour une base d'api rest donnée :
@@ -215,6 +216,29 @@ const deleteSave = function(login, pathProjet) {
     fse.removeSync(pathProjet + '/archive');
 };
 
+const manageInfosFile = function(login, pathProjet) {
+    const infosFileName = pathProjet + '/' + login + '.json';
+    let infos;
+    if (fs.existsSync(infosFileName)) {
+        let fichier = fs.readFileSync(infosFileName);
+        infos = JSON.parse(fichier);
+        infos.dateModif =  dayjs().format('DD/MM/YYYY');
+    } else {
+        infos = {
+            name: login,
+            dateModif: dayjs().format('DD/MM/YYYY'),
+            listOptions: [
+                {
+                    label: 'Accueil',
+                    link: 'http://studiouxui.net:8080/' + login
+                }
+            ]
+        };
+    }
+    let donnees = JSON.stringify(infos);
+    fs.writeFileSync(infosFileName, donnees);
+};
+
 /**
  * Permet d'exporter le module
  */
@@ -222,7 +246,7 @@ module.exports = {
     suppress, runFile, findFile, initLoad,
     moveDistToServerHttp,
     extractFolderMock, moveNewFileToRoot,
-    deleteCache, rollbackUpload, deleteSave
+    deleteCache, rollbackUpload, deleteSave, manageInfosFile
 };
 
 

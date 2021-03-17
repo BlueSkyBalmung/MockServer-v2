@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-/*app.use(function(req, res, next) {
+app.use(function(req, res, next) {
 // Permet de faire du cross domain -> le temps de dev
     res.setHeader('Access-Control-Allow-Origin','*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS');
@@ -21,7 +21,7 @@ app.use(bodyParser.json());
     res.setHeader('Access-Control-Allow-Headers', '*');
     next();
 });
-*/
+
 
 /**
  * Chargement initial
